@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+	function pulaLinha(){
+		document.write("<br><br>");
+	}
+
+	function mostra(frase){
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function sorteia(n){
+		return Math.round(Math.random() * n);
+	}
+
+	for(var linha = 1; linha <= 15; linha++){
+
+		for(var coluna = 1; coluna <= 156; coluna++){
+			document.write("*");
+		}
+		pulaLinha();
+	}
+
+</script>

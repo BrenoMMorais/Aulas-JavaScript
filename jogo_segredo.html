@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<input/>
+<button>Tentativa</button>
+<script>
+
+	function sorteio(){
+		return Math.round(Math.random() * 10);
+	}
+	function sorteiaNumeros(quantidade) {
+		var segredo = [];
+		var numero = 1;
+		while(numero <= quantidade){
+
+			var numeroAleatorio = sorteio();
+			var achou = false;
+			
+			if(numeroAleatorio !== 0){
+				
+
+				for(var posicao = 0; posicao < segredo.length; posicao++){
+
+				if(segredo[posicao] == numeroAleatorio){
+					achou = true;
+					break;
+					}
+				}
+
+				if(achou == false){
+					segredo.push(numeroAleatorio);
+					numero++;
+				}
+			}
+		}
+		return segredo;
+	}
+
+	var segredos = sorteiaNumeros(6);
+	console.log(segredos);
+
+	var texto = document.querySelector("input");
+	texto.focus();
+
+	function verifica(){
+
+		var achou = false;
+		for(var posicao = 0; posicao < segredos.length; posicao++){
+
+			if(texto.value == segredos[posicao]) {
+				alert("Você acertou!!");
+				achou = true;
+				break;
+			}
+		}
+			if(achou == false){
+				alert("Você ERROU!!!!!");
+			}
+			texto.value = "";
+			texto.focus();
+	}
+
+	var botao = document.querySelector("button");
+	botao.onclick = verifica;
+
+</script>

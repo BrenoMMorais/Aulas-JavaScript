@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+	<title>Adivinha o Número</title>
+		<style>
+			body{
+				font: Tahoma;
+				align-items: center;
+				background-color: darkblue;
+			}
+			.titulo{
+				text-align: center;
+				color: whitesmoke;
+			}
+			.centro{
+				text-align: center;
+				margin: auto;
+				padding: 25px;
+				min-height: 300px;
+				height: auto;
+				width: 500px;
+				background-color: lightblue;
+				border-radius: 25px;
+			}
+			.resetar{
+				text-align: center;
+				width: 85px;
+				height: 25px;
+				border-radius: 20px;
+				font-weight: 300;
+				position: absolute;
+				bottom: 33%;
+				left: 45%;
+			}
+			.resetar:hover{
+				background-color: darkgray;
+				transition: 1.5s;
+			}
+			.botao{
+        	    text-align: center;
+          		width: 85px;
+        	    height: 25px;
+        	    border-radius: 20px;
+       		    font-weight: 300;
+  			}
+ 		   	.botao:hover{
+            	background-color: darkgray;
+            	transition: 1.5s
+    		}
+    		.texto{
+            	text-align: center;
+            	font-size: large;
+    		}
+    	</style>
+</head>
+<body>
+	<header class="titulo">
+		<h1>Adivinha o Número</h1>
+	</header>
+		<form>
+			<div class="centro">
+				<h3>Chute um número de 1 a 10:</h3>
+				<input placeholder="Digite aqui o seu número" class="numero">
+                <input type="submit" value="Chute!" class="btn" onclick="chute()">
+
+                <p class="texto"></p>
+
+                <button class="resetar" onclick="resetar()">Resetar</button>
+			</div>
+		</form>
+<script>
+
+	function pulaLinha(){
+		document.write("<br><br>");
+	}
+
+	function mostra(frase){
+		document.write(frase);
+		pulaLinha();
+	}
+
+	function sorteia(n){
+		return Math.round(Math.random() * n);
+	}
+
+	var numeroPensado = sorteia(10);
+	console.log(numeroPensado);
+	var chute = parseInt(prompt("Chute um número: "));
+
+	if(chute == numeroPensado){
+		mostra("Você acertou!!");
+	} else{
+		mostra("Você errou!!! O número na verdade era o " + numeroPensado);
+	}
+
+
+</script>
